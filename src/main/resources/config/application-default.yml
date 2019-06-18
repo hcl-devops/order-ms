@@ -37,8 +37,8 @@ spring:
         type: com.zaxxer.hikari.HikariDataSource
         maximum-pool-size: 2
         minimum-idle: 1
-        #url: jdbc:mysql://dna1.hclets.com:24356/ORDER_PROCESSING
-        url: jdbc:mysql://10.0.24.35:27306/ORDER_PROCESSING
+        url: jdbc:mysql://dna1.hclets.com:24356/ORDER_PROCESSING
+        #url: jdbc:mysql://10.0.24.35:27306/ORDER_PROCESSING
         username: adcdevuser
         password: AdcDev@2019
         driver-class-name: com.mysql.jdbc.Driver
