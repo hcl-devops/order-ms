@@ -1,0 +1,65 @@
+# ===================================================================
+# Spring Boot configuration for the "dev" profile.
+#
+# This configuration overrides the application.yml file.
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+# ===================================================================
+# Server
+# ===================================================================
+server:
+    port: 9092
+
+# ===================================================================
+# Logging
+# ===================================================================
+logging:
+    level:
+        root: error
+        sun.net: error
+        org.springframework : info
+        com.hcl.adalm.services : debug
+        com.netflix.discovery.DiscoveryClient: error
+    
+    
+spring:
+    profiles:
+        include: swagger
+          
+        
+    datasource:
+        type: com.zaxxer.hikari.HikariDataSource
+        maximum-pool-size: 2
+        minimum-idle: 1
+        #url: jdbc:mysql://dna1.hclets.com:24356/ORDER_PROCESSING
+        url: jdbc:mysql://10.0.24.35:27306/ORDER_PROCESSING
+        username: adcdevuser
+        password: AdcDev@2019
+        driver-class-name: com.mysql.jdbc.Driver
+    h2:
+        console:
+            enabled: false
+    jpa:
+        database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+        database: MYSQL
+        show-sql: true
+        hibernate:
+            naming:
+                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#        properties:
+#            hibernate.cache.use_second_level_cache: true
+#            hibernate.cache.use_query_cache: false
+#            hibernate.generate_statistics: true
+#            hibernate.cache.use_minimal_puts: true
+#            hibernate.cache.hazelcast.use_lite_member: true
+#            hibernate.ddl-auto: none
+springfox:
+  documentation:
+    swagger:
+      v2.path: /api-docs
